@@ -14,3 +14,10 @@
 - task.pdf - файл с заданиями
 - students.csv - данные для заданий
 - task1.py, task2.py - решения на python
+
+## Полезные ссылки
+
+- [pep8 docstring](https://pythonist.ru/pep-8-kommentarii-probely-vybor-metodov/)
+- [github в pycharm](https://youtu.be/0l-bC-7mS8g?si=-iDTgmW4fo9hcnGu)
+- [readme](https://doka.guide/recipes/github-add-readme/)
+- [marckdown](https://skillbox.ru/media/code/yazyk-razmetki-markdown-shpargalka-po-sintaksisu-s-primerami/)
