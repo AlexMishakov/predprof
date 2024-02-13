@@ -1,54 +1,25 @@
-def show_result(name_user: str, file_name: str) -> str:
+def main(in_file_name: str, out_file_name: str, serach_name: str):
     """
-    Вывод результата студента.
-    :param name_user: Имя студента
-    :param file_name: Файл где искать
-    :return: Строка результата
+    Основная функция.
+    Ищет пользователя по имени и фамилии, создает новую таблицу со средней оценкой по классу
     """
-    f = open(file_name)
+    f = open(in_file_name)
     f.readline()
-
-    for line in f.readlines():
-        data = line.split(',')
-        score = 0
-        if data[4] != 'None\n':
-            score = int(data[4])
-        if name_user in data[1]:
-            return f'Ты получил: {score}, за проект - {data[2]}'
-
-    f.close()
-
-
-def create_table(name_file: str, name_new_file: str):
-    """
-    Создание таблицы со средней оценкой по классу.
-    :param name_file: Где искать
-    :param name_new_file: Имя нового файла
-    """
-    f = open(name_file)
-    f.readline()
-
     all_klass = {}
-
-    '''
-    all_klass = {
-        '11М': (34, 9)
-    }
-    '''
-
     for line in f.readlines():
         data = line.split(',')
-
-        user_klass = data[3]
         score = 0
         if data[4] != 'None\n':
             score = int(data[4])
-
+        user_klass = data[3]
         if user_klass in all_klass.keys():
             klass = all_klass[user_klass]
             all_klass[user_klass] = (klass[0]+score, klass[1]+1)
         else:
             all_klass[user_klass] = (score, 1)
+
+        if serach_name in data[1]:
+            print(f'Ты получил: {score}, за проект - {data[2]}')
 
     f.close()
 
@@ -58,11 +29,10 @@ def create_table(name_file: str, name_new_file: str):
         avg_klass = sm_klass / count_klass
         data_new_file += f'{klass},{avg_klass:.4}\n'
 
-    new_f = open(name_new_file, 'w')
+    new_f = open(out_file_name, 'w')
     new_f.write(data_new_file)
     new_f.close()
 
 
 if __name__ == '__main__':
-    print(show_result('Хадаров Владимир', 'students.csv'))
-    create_table('students.csv', 'student_new.csv')
+    main('students.csv', 'student_new.csv', 'Хадаров Владимир')
