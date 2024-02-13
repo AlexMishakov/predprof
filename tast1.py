@@ -2,6 +2,9 @@ def main(in_file_name: str, out_file_name: str, serach_name: str):
     """
     Основная функция.
     Ищет пользователя по имени и фамилии, создает новую таблицу со средней оценкой по классу
+    :param in_file_name: Название файла для обработки
+    :param out_file_name: Название файла для сохранения
+    :param serach_name: Кого искать
     """
     f = open(in_file_name)
     f.readline()

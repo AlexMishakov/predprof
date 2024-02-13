@@ -1,5 +1,9 @@
 def search(_id_project: int, file_name: str) -> str:
-    """Фукнция поиска проекта по id."""
+    """Фукнция поиска проекта по id.
+    :param _id_project: id проекта для поиска
+    :param file_name: Где искать
+    :return: Результат поиска
+    """
     f = open(file_name)
     f.readline()
 

@@ -2,7 +2,10 @@ from random import randint
 
 
 def create_login(user: str) -> str:
-    """Лоиг из ФИО."""
+    """Лоиг из ФИО.
+    :param user: ФИО пользователя
+    :return: Сгенерированный логин
+    """
     data_user = user.split(' ')
     return f'{data_user[0]}_{data_user[1][0]}{data_user[2][0]}'
 
@@ -14,6 +17,7 @@ def create_password() -> str:
     - Заглваные английские буквы
     - Прописные английские буквы
     - Цифры
+    :return: Сгенерированный пароль
     """
     n_num = randint(1, 3)
     n_abc = randint(1, 3)
@@ -29,7 +33,10 @@ def create_password() -> str:
 
 
 def create_new_table(in_file_name: str, out_file_name: str):
-    """Создание новой таблицы с логинами и паролями"""
+    """Создание новой таблицы с логинами и паролями
+    :param in_file_name: Название файла для обработки
+    :param out_file_name: Название файла для сохранения
+    """
     in_file = open(in_file_name)
     head = in_file.readline()
     new_data = head[:-1] + ',Login,Password\n'
